@@ -9,13 +9,19 @@ export default function App() {
     fetchMemes();
   }, []);
 
+  useEffect(() => {
+    console.log(memes);
+  }, [memes]);
+
   const fetchMemes = async () => {
-    const response = await Axios('https://api.imgflip.com/get_memes');
-    setMemes(response.data.memes);
+    const response = await fetch('https://api.imgflip.com/get_memes');
+    const data = await response.json();
+    setMemes(data.data.memes);
   };
 
   return (
     <div className="App">
+      <h1>Hello</h1>
       {memes &&
         memes.map((meme) => {
           return (
