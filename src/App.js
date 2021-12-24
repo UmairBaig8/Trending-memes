@@ -21,16 +21,12 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Hello</h1>
       {memes &&
         memes.map((meme) => {
           return (
             <div key={meme.id}>
               <h4>{meme.name}</h4>
-              <imp
-                src={meme.url}
-                style={{ width: meme.width, height: meme.height }}
-              />
+              <img src={meme.url} style={{ width: '200px', height: '200px' }} />
             </div>
           );
         })}
